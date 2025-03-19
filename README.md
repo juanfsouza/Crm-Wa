@@ -22,22 +22,21 @@
 - 📌 Integração com APIs externas como Google Sheets ou um banco de dados.
 - 🛠️ Passo 2: Ferramentas e Tecnologias
 
-## Extensão para Chrome:
-
+### Extensão para Chrome:
 - Manifest V3 (novo padrão para extensões)
 - TypeScript (para código mais seguro e escalável)
 - React com Tailwind CSS (para UI dinâmica e estilosa)
 - Vite (rapido e util)
   
-## Comunicação com WhatsApp
+### Comunicação com WhatsApp
 - WhatsApp Web API - Monitoramento do DOM do WhatsApp Web.
 
-## Backend e Banco de Dados
+### Backend e Banco de Dados
 - NestJS (Node.js + TypeScript) para backend.
 - PostgreSQL/Supabase para armazenar contatos e mensagens.
 - Prisma como ORM.
 - WebSockets (Socket.io) para comunicação em tempo real
 
-### ⚙️Criar a Estrutura da Extensão
+### Criar a Estrutura da Extensão
 Configurar o manifest.json
 Esse arquivo define permissões, ícone e scripts da extensão.
