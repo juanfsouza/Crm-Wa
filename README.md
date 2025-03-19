@@ -22,8 +22,6 @@
 - 📌 Integração com APIs externas como Google Sheets ou um banco de dados.
 - 🛠️ Passo 2: Ferramentas e Tecnologias
 
-Aqui estão algumas tecnologias que você pode usar:
-
 ## Extensão para Chrome:
 
 - Manifest V3 (novo padrão para extensões)
