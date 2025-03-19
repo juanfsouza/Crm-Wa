@@ -24,11 +24,12 @@
 Aqui estão algumas tecnologias que você pode usar:
 
 ## Extensão para Chrome:
+
 - Manifest V3 (novo padrão para extensões)
 - TypeScript (para código mais seguro e escalável)
 - React com Tailwind CSS (para UI dinâmica e estilosa)
 - Vite (rapido e util)
-- 
+  
 ## Comunicação com WhatsApp
 - WhatsApp Web API - Monitoramento do DOM do WhatsApp Web.
 
