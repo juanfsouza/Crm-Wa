@@ -15,12 +15,12 @@
 
 ### CRM deve fazer algumas funcionalidades comuns incluem:
   
-### 📩 Envio e recebimento de mensagens do WhatsApp diretamente pela extensão.
-### 🗂️ Gerenciamento de contatos e histórico de conversas.
-### 🔔 Notificações de novas mensagens dentro da extensão.
-### 📊 Dashboard com estatísticas e relatórios.
-### 📌 Integração com APIs externas como Google Sheets ou um banco de dados.
-### 🛠️ Passo 2: Ferramentas e Tecnologias
+📩 Envio e recebimento de mensagens do WhatsApp diretamente pela extensão.
+🗂️ Gerenciamento de contatos e histórico de conversas.
+🔔 Notificações de novas mensagens dentro da extensão.
+📊 Dashboard com estatísticas e relatórios.
+📌 Integração com APIs externas como Google Sheets ou um banco de dados.
+🛠️ Passo 2: Ferramentas e Tecnologias
 Aqui estão algumas tecnologias que você pode usar:
 
 ## Extensão para Chrome:
