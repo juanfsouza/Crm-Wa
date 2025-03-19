@@ -1,41 +1,65 @@
 import { Injectable } from '@nestjs/common';
-import { Client, LocalAuth } from 'whatsapp-web.js';
+import { Client, LocalAuth, Message } from 'whatsapp-web.js';
+import { PrismaClient } from '@prisma/client';
+import * as qrcode from 'qrcode';
+import { WhatsAppGateway } from './whatsapp.gateway';
 
 @Injectable()
 export class WhatsAppService {
   private client: Client;
+  private prisma = new PrismaClient();
 
-  constructor() {
-    const authOptions = {
-      authStrategy: new LocalAuth(), // Usando LocalAuth para autenticação persistente
-      clientId: 'whatsapp-client', // Identificador único para sua instância
-    };
+  constructor(private whatsappGateway: WhatsAppGateway) {
+    this.client = new Client({
+      authStrategy: new LocalAuth(),
+    });
 
-    // Agora passando corretamente as opções de autenticação
-    this.client = new Client(authOptions);
-
-    // QR Code event handler (para autenticação inicial)
     this.client.on('qr', (qr) => {
       console.log('QR RECEIVED', qr);
-      // Aqui você pode salvar o QR Code e mostrar ao usuário ou fazer outra coisa.
+      qrcode.toFile('qrcode.png', qr, (err) => {
+        if (err) console.error('Erro ao gerar QR Code:', err);
+      });
     });
 
-    // Ready event handler
     this.client.on('ready', () => {
-      console.log('WhatsApp client is ready!');
+      console.log('✅ WhatsApp client is ready!');
     });
 
-    // Iniciar o cliente WhatsApp
+    this.client.on('message', async (message: Message) => {
+      console.log(`📩 Mensagem recebida de ${message.from}: ${message.body}`);
+
+      // Salvar mensagem no banco de dados
+      await this.prisma.message.create({
+        data: {
+          from: message.from,
+          content: message.body,
+        },
+      });
+
+      // Enviar mensagem para o frontend via WebSockets
+      this.whatsappGateway.server.emit('newMessage', {
+        from: message.from,
+        content: message.body,
+      });
+    });
+
     this.client.initialize();
   }
 
-  // Método para enviar mensagens
+  // ✅ Método para buscar mensagens do banco de dados
+  async getMessages() {
+    return this.prisma.message.findMany();
+  }
+
+  // ✅ Método para enviar mensagens
   async sendMessage(to: string, message: string) {
     try {
-      const chat = await this.client.getChatById(to);
-      chat.sendMessage(message);
+      const chatId = to.includes('@c.us') ? to : `${to}@c.us`;
+      await this.client.sendMessage(chatId, message);
+      return { success: true, message: 'Mensagem enviada com sucesso!' };
     } catch (error) {
-      console.error('Error sending message', error);
+      console.error('Erro ao enviar mensagem:', error);
+      return { success: false, error: 'Erro ao enviar mensagem' };
     }
   }
 }
