@@ -10,9 +10,8 @@
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
-  
-### 📌 Definir as Funcionalidades
 
+  
 ### CRM deve fazer algumas funcionalidades comuns incluem:
   
 - 📩 Envio e recebimento de mensagens do WhatsApp diretamente pela extensão.
