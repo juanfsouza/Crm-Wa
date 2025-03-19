@@ -1,3 +1,9 @@
+<div align="center">
+
+### 🚀 CRM WHATSAPP 🚀
+
+</div>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -5,9 +11,14 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-## 📌 Definir as Funcionalidades
-### CRM deve fazer algumas funcionalidades comuns incluem:
+<div align="center">
+  
+### 📌 Definir as Funcionalidades
 
+</div>
+
+### CRM deve fazer algumas funcionalidades comuns incluem:
+  
 ### 📩 Envio e recebimento de mensagens do WhatsApp diretamente pela extensão.
 ### 🗂️ Gerenciamento de contatos e histórico de conversas.
 ### 🔔 Notificações de novas mensagens dentro da extensão.
