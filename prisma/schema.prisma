@@ -49,9 +49,12 @@ model Task {
 }
 
 model Message {
-  id        String @id @default(uuid())
-  from      String
-  content   String
-  createdAt DateTime @default(now())
+  id          String   @id @default(uuid())
+  from        String
+  content     String
+  name        String?
+  profilePic  String?
+  createdAt   DateTime @default(now())
 }
+
 

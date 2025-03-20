@@ -14,6 +14,10 @@ import { PrismaModule } from './prisma/prisma.module';
 import { UsersModule } from './users/users.module';
 import { ColumnModule } from './column/column.module';
 import { WhatsAppModule } from './whatsapp/whatsapp.module';
+import { QueueService } from './queue/queue.service';
+import { QueueModule } from './queue/queue.module';
+import { RedisService } from './redis/redis.service';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -26,6 +30,8 @@ import { WhatsAppModule } from './whatsapp/whatsapp.module';
     AuthModule, 
     ColumnModule,
     WhatsAppModule,
+    QueueModule,
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [
@@ -35,7 +41,7 @@ import { WhatsAppModule } from './whatsapp/whatsapp.module';
     },
     AppService, 
     PrismaService, 
-    WebsocketGateway,
+    WebsocketGateway, QueueService, RedisService,
   ],
 })
 export class AppModule {}
